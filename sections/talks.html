@@ -1,0 +1,164 @@
+<section class="bg-gradient-to-b from-surf to-aqua py-12 md:py-16 px-4 md:px-8 text-twilight">
+    <div class="max-w-full mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-10">
+            <p class="text-sm font-bold uppercase tracking-[0.2em] mb-3 text-twilight/90">
+                Watch & Learn
+            </p>
+            <h2
+                class="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.85] tracking-tighter text-twilight mb-4">
+                Our Talks
+            </h2>
+            <div class="h-1 w-24 bg-twilight mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Horizontal Carousel Container -->
+        <div class="relative mb-10">
+            <!-- Left Arrow -->
+            <button id="talks-scroll-left"
+                class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-twilight/90 hover:bg-twilight text-white rounded-full p-4 shadow-xl hover:scale-110 transition-all hidden md:flex items-center justify-center">
+                <i class="fa-solid fa-chevron-left text-xl"></i>
+            </button>
+
+            <!-- Right Arrow -->
+            <button id="talks-scroll-right"
+                class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-twilight/90 hover:bg-twilight text-white rounded-full p-4 shadow-xl hover:scale-110 transition-all hidden md:flex items-center justify-center">
+                <i class="fa-solid fa-chevron-right text-xl"></i>
+            </button>
+
+            <!-- Scrollable Video Container -->
+            <div id="talks-carousel"
+                class="flex gap-6 overflow-x-auto scroll-smooth pb-4 px-2 snap-x snap-mandatory hide-scrollbar">
+
+                <!-- Video 0: Avinash Upadhyaya (New) -->
+                <div class="flex-none w-full md:w-[600px] snap-center">
+                    <div class="group relative aspect-video rounded-2xl overflow-hidden shadow-2xl hover:shadow-aqua/20 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-aqua/50"
+                        onclick="this.querySelector('.video-facade').style.display='none'; this.querySelector('iframe').src += '&autoplay=1';">
+
+                        <!-- Custom Thumbnail Facade -->
+                        <div class="video-facade absolute inset-0 z-20 cursor-pointer">
+                            <img src="/assets/images/avinash_upadhyaya.png" alt="Talk Thumbnail"
+                                class="w-full h-full object-cover">
+                            <!-- Play Button Overlay -->
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/0 transition-all duration-300">
+                                <div
+                                    class="w-20 h-20 bg-red-600/90 rounded-full flex items-center justify-center transform scale-90 group-hover:scale-100 transition-all duration-300 shadow-2xl shadow-red-600/50 group-hover:animate-pulse">
+                                    <i class="fa-solid fa-play text-white text-3xl ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <iframe class="w-full h-full relative z-0"
+                            src="https://www.youtube.com/embed/uu4VIwqwqlg?enablejsapi=1" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Video 1 -->
+                <div class="flex-none w-full md:w-[600px] snap-center">
+                    <div
+                        class="group relative aspect-video rounded-2xl overflow-hidden shadow-2xl hover:shadow-aqua/20 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-aqua/50">
+                        <!-- Play Button Overlay -->
+                        <div
+                            class="absolute inset-0 z-10 pointer-events-none flex items-center justify-center bg-black/20 group-hover:bg-black/0 transition-all duration-300">
+                            <div
+                                class="w-20 h-20 bg-red-600/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 shadow-2xl shadow-red-600/50 group-hover:animate-pulse">
+                                <i class="fa-solid fa-play text-white text-3xl ml-1"></i>
+                            </div>
+                        </div>
+                        <iframe class="w-full h-full relative z-0" src="https://www.youtube.com/embed/AysTFzvOiBg"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="flex-none w-full md:w-[600px] snap-center">
+                    <div
+                        class="group relative aspect-video rounded-2xl overflow-hidden shadow-2xl hover:shadow-aqua/20 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-aqua/50">
+                        <!-- Play Button Overlay -->
+                        <div
+                            class="absolute inset-0 z-10 pointer-events-none flex items-center justify-center bg-black/20 group-hover:bg-black/0 transition-all duration-300">
+                            <div
+                                class="w-20 h-20 bg-red-600/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 shadow-2xl shadow-red-600/50 group-hover:animate-pulse">
+                                <i class="fa-solid fa-play text-white text-3xl ml-1"></i>
+                            </div>
+                        </div>
+                        <iframe class="w-full h-full relative z-0" src="https://www.youtube.com/embed/UXuplv4MKWI"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="flex-none w-full md:w-[600px] snap-center">
+                    <div
+                        class="group relative aspect-video rounded-2xl overflow-hidden shadow-2xl hover:shadow-aqua/20 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-aqua/50">
+                        <!-- Play Button Overlay -->
+                        <div
+                            class="absolute inset-0 z-10 pointer-events-none flex items-center justify-center bg-black/20 group-hover:bg-black/0 transition-all duration-300">
+                            <div
+                                class="w-20 h-20 bg-red-600/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 shadow-2xl shadow-red-600/50 group-hover:animate-pulse">
+                                <i class="fa-solid fa-play text-white text-3xl ml-1"></i>
+                            </div>
+                        </div>
+                        <iframe class="w-full h-full relative z-0" src="https://www.youtube.com/embed/Zqeh6U4AYD0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="flex-none w-full md:w-[600px] snap-center">
+                    <div
+                        class="group relative aspect-video rounded-2xl overflow-hidden shadow-2xl hover:shadow-aqua/20 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-aqua/50">
+                        <!-- Play Button Overlay -->
+                        <div
+                            class="absolute inset-0 z-10 pointer-events-none flex items-center justify-center bg-black/20 group-hover:bg-black/0 transition-all duration-300">
+                            <div
+                                class="w-20 h-20 bg-red-600/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 shadow-2xl shadow-red-600/50 group-hover:animate-pulse">
+                                <i class="fa-solid fa-play text-white text-3xl ml-1"></i>
+                            </div>
+                        </div>
+                        <iframe class="w-full h-full relative z-0" src="https://www.youtube.com/embed/UWogU__IunI"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Watch All Button -->
+        <div class="text-center">
+            <a href="https://youtube.com/@platformatory" target="_blank"
+                class="inline-flex items-center justify-center px-12 py-5 bg-twilight text-white font-black text-lg md:text-xl rounded-full shadow-xl hover:bg-french transition-all transform hover:-translate-y-1 group">
+                <i class="fa-brands fa-youtube mr-3 text-2xl group-hover:scale-110 transition-transform"></i>
+                Watch All Our Talks
+                <i class="fa-solid fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</section>
