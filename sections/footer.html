@@ -21,10 +21,10 @@
                 <p class="text-xs text-twilight/70 mb-4 max-w-xs text-center md:text-left">
                     Get the latest updates on events, talks, and community news.
                 </p>
-                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2 w-full max-w-sm">
-                    <input id="newsletter-email" type="email" placeholder="Enter your email" required
+                <form class="flex flex-col sm:flex-row gap-2 w-full max-w-sm">
+                    <input type="email" name="email" placeholder="Enter your email" required
                         class="flex-1 px-4 py-2 rounded-full border border-twilight/20 bg-white/50 focus:bg-white focus:border-twilight focus:outline-none text-sm text-twilight placeholder:text-twilight/50 transition-all">
-                    <button id="newsletter-btn" type="submit"
+                    <button type="submit"
                         class="px-6 py-2 rounded-full bg-twilight text-white font-bold text-sm hover:bg-french transition-all hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
                         Subscribe
                     </button>
@@ -76,7 +76,7 @@
         <!-- Bottom: Copyright & Credits -->
         <div class="text-center pt-6 border-t border-twilight/10">
             <p class="text-sm text-twilight/70 mb-2">
-                © 2025 Bengaluru Streams. All rights reserved.
+                © <span id="current-year"></span> Bengaluru Streams. All rights reserved.
             </p>
             <p class="text-xs text-twilight/60">
                 Built with ❤️ for the streaming and real-time data community

@@ -129,6 +129,9 @@
             // Initialize Newsletter
             initNewsletter();
 
+            // Initialize Footer Year
+            initFooterYear();
+
             // Initialize particles after sections are loaded
             // initParticles();
         }
@@ -437,6 +440,13 @@
                         }, 3000);
                     });
             });
+        }
+
+        function initFooterYear() {
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
         }
         loadSections();
     </script>
