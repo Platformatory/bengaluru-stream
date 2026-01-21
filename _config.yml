@@ -1,0 +1,11 @@
+title: Bengaluru Streams
+description: A Community for Streaming and Real-Time Data Professionals
+collections:
+  events:
+    output: true
+    sort_by: date
+exclude:
+  - node_modules
+  - .git
+  - .gitignore
+  - README.md
