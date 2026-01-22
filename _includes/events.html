@@ -1,7 +1,7 @@
 {% assign current_date_ts = site.time | date: '%Y-%m-%d' | date: '%s' %}
 {% assign shown_count = 0 %}
 {% assign past_count = 0 %}
-{% assign limit = 4 %}
+{% assign limit = 3 %}
 
 {% assign sorted_events = site.events | sort: "date" | reverse %}
 
@@ -19,7 +19,7 @@
         </div>
 
         <!-- Events Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mb-12">
             {% for event in sorted_events %}
             {% assign event_ts = event.date | date: '%s' %}
             {% if event_ts < current_date_ts %} {% if shown_count < limit %} {% include event-card.html event=event
