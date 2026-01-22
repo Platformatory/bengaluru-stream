@@ -265,40 +265,30 @@ function initNewsletter() {
         btn.disabled = true;
         btn.classList.add('opacity-70', 'cursor-not-allowed');
 
-        // HubSpot configuration
-        const portalId = '244934895';
+        // Use HubSpot's tracking queue directly
+        // The tracking code automatically initializes window._hsq
+        window._hsq = window._hsq || [];
 
-        // Wait for HubSpot to load, then use it to track the email
-        const submitToHubSpot = () => {
-            if (window.hbspt && window.hbspt.forms) {
-                // Use HubSpot's built-in form tracking
-                // This will automatically create/update the contact
-                window._hsq = window._hsq || [];
-                window._hsq.push(['identify', {
-                    email: email
-                }]);
+        // Identify the contact by email
+        window._hsq.push(['identify', {
+            email: email
+        }]);
 
-                // Track the newsletter subscription event
-                window._hsq.push(['trackEvent', {
-                    id: 'Newsletter Subscription',
-                    value: email
-                }]);
+        // Track the newsletter subscription event
+        window._hsq.push(['trackEvent', {
+            id: 'Newsletter Subscription',
+            value: email
+        }]);
 
-                btn.innerText = 'Subscribed!';
-                form.reset();
+        // Show success message
+        btn.innerText = 'Subscribed!';
+        form.reset();
 
-                setTimeout(() => {
-                    btn.innerText = originalBtnText;
-                    btn.disabled = false;
-                    btn.classList.remove('opacity-70', 'cursor-not-allowed');
-                }, 3000);
-            } else {
-                // HubSpot not loaded yet, try again
-                setTimeout(submitToHubSpot, 100);
-            }
-        };
-
-        submitToHubSpot();
+        setTimeout(() => {
+            btn.innerText = originalBtnText;
+            btn.disabled = false;
+            btn.classList.remove('opacity-70', 'cursor-not-allowed');
+        }, 3000);
     });
 }
 
