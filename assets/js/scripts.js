@@ -265,19 +265,30 @@ function initNewsletter() {
         btn.disabled = true;
         btn.classList.add('opacity-70', 'cursor-not-allowed');
 
-        // Use HubSpot's tracking queue directly
-        // The tracking code automatically initializes window._hsq
+        // HubSpot Portal ID
+        const portalId = '244934895';
+
+        // Method 1: Try using HubSpot Forms API (requires form to be created in HubSpot)
+        // You need to create a form in HubSpot and replace 'YOUR_FORM_GUID' with the actual GUID
+        // For now, we'll use Method 2 as a working solution
+
+        // Method 2: Use HubSpot tracking with identify and setPath to create contact
         window._hsq = window._hsq || [];
 
-        // Identify the contact by email
+        // Identify the contact
         window._hsq.push(['identify', {
             email: email
         }]);
 
+        // Set the current page path
+        window._hsq.push(['setPath', window.location.pathname]);
+
+        // Track a page view (this is what actually creates the contact)
+        window._hsq.push(['trackPageView']);
+
         // Track the newsletter subscription event
         window._hsq.push(['trackEvent', {
-            id: 'Newsletter Subscription',
-            value: email
+            id: 'Newsletter Subscription'
         }]);
 
         // Show success message
