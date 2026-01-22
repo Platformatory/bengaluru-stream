@@ -265,41 +265,68 @@ function initNewsletter() {
         btn.disabled = true;
         btn.classList.add('opacity-70', 'cursor-not-allowed');
 
-        // Google Apps Script Web App URL
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyayyey9USOaZxtSngEraVwhvl6IDcf4QHA0AUCccznFdrnAnRA8r0DQktkAJwRaxAziQ/exec';
+        // HubSpot configuration
+        const portalId = '244934895';
+        const formGuid = 'newsletter-subscription'; // You'll need to create a form in HubSpot and get the actual form GUID
 
-        // Use URLSearchParams for application/x-www-form-urlencoded
-        const formData = new URLSearchParams();
-        formData.append('email', email);
+        // Wait for HubSpot to load, then submit
+        const submitToHubSpot = () => {
+            if (window.hbspt && window.hbspt.forms) {
+                // Use HubSpot Forms API
+                const hubspotData = {
+                    portalId: portalId,
+                    formGuid: formGuid,
+                    fields: [
+                        {
+                            name: 'email',
+                            value: email
+                        }
+                    ],
+                    context: {
+                        pageUri: window.location.href,
+                        pageName: document.title
+                    }
+                };
 
-        fetch(scriptURL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: formData.toString()
-        })
-            .then(response => {
-                // Assume success since 'no-cors' hides the status
-                btn.innerText = 'Subscribed!';
-                form.reset();
+                // Submit to HubSpot Forms API
+                fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(hubspotData)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.inlineMessage || data.redirectUri) {
+                            btn.innerText = 'Subscribed!';
+                            form.reset();
+                        } else {
+                            throw new Error('Submission failed');
+                        }
 
-                setTimeout(() => {
-                    btn.innerText = originalBtnText;
-                    btn.disabled = false;
-                    btn.classList.remove('opacity-70', 'cursor-not-allowed');
-                }, 3000);
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                btn.innerText = 'Error! Try again.';
-                setTimeout(() => {
-                    btn.innerText = originalBtnText;
-                    btn.disabled = false;
-                    btn.classList.remove('opacity-70', 'cursor-not-allowed');
-                }, 3000);
-            });
+                        setTimeout(() => {
+                            btn.innerText = originalBtnText;
+                            btn.disabled = false;
+                            btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                        }, 3000);
+                    })
+                    .catch(error => {
+                        console.error('Error!', error);
+                        btn.innerText = 'Error! Try again.';
+                        setTimeout(() => {
+                            btn.innerText = originalBtnText;
+                            btn.disabled = false;
+                            btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                        }, 3000);
+                    });
+            } else {
+                // HubSpot not loaded yet, try again
+                setTimeout(submitToHubSpot, 100);
+            }
+        };
+
+        submitToHubSpot();
     });
 }
 

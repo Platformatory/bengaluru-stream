@@ -2077,9 +2077,9 @@
                 <p class="text-xs text-twilight/70 mb-4 max-w-xs text-center md:text-left">
                     Get the latest updates on events, talks, and community news.
                 </p>
-                <form class="flex flex-col sm:flex-row gap-2 w-full max-w-sm">
-                    <input type="email" name="email" placeholder="Enter your email" required="" class="flex-1 px-4 py-2 rounded-full border border-twilight/20 bg-white/50 focus:bg-white focus:border-twilight focus:outline-none text-sm text-twilight placeholder:text-twilight/50 transition-all" />
-                    <button type="submit" class="px-6 py-2 rounded-full bg-twilight text-white font-bold text-sm hover:bg-french transition-all hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
+                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2 w-full max-w-sm">
+                    <input type="email" id="newsletter-email" name="email" placeholder="Enter your email" required="" class="flex-1 px-4 py-2 rounded-full border border-twilight/20 bg-white/50 focus:bg-white focus:border-twilight focus:outline-none text-sm text-twilight placeholder:text-twilight/50 transition-all" />
+                    <button type="submit" id="newsletter-btn" class="px-6 py-2 rounded-full bg-twilight text-white font-bold text-sm hover:bg-french transition-all hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
                         Subscribe
                     </button>
                 </form>
@@ -2124,6 +2124,10 @@
             </p>
         </div>
     </div>
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async="" defer="" src="//js-na2.hs-scripts.com/244934895.js"></script>
+    <!-- End of HubSpot Embed Code -->
 </section>
 
 
