@@ -39,6 +39,7 @@ title: Events - Bengaluru Streams
         <a href="/">
             <img src="/assets/images/bengaluru_streams.png" alt="Logo" class="h-12 md:h-20 w-auto cursor-pointer hover:opacity-80 transition-opacity">
         </a>
+        <p class="text-xs text-white/30 ml-2 mt-1 italic">Powered by Platformatory Labs</p>
     </div>
 
     <div class="absolute top-8 right-8 md:top-12 md:right-12 z-20 text-white">
