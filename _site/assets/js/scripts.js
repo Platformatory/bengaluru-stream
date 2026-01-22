@@ -267,59 +267,31 @@ function initNewsletter() {
 
         // HubSpot configuration
         const portalId = '244934895';
-        const formGuid = 'newsletter-subscription'; // You'll need to create a form in HubSpot and get the actual form GUID
 
-        // Wait for HubSpot to load, then submit
+        // Wait for HubSpot to load, then use it to track the email
         const submitToHubSpot = () => {
             if (window.hbspt && window.hbspt.forms) {
-                // Use HubSpot Forms API
-                const hubspotData = {
-                    portalId: portalId,
-                    formGuid: formGuid,
-                    fields: [
-                        {
-                            name: 'email',
-                            value: email
-                        }
-                    ],
-                    context: {
-                        pageUri: window.location.href,
-                        pageName: document.title
-                    }
-                };
+                // Use HubSpot's built-in form tracking
+                // This will automatically create/update the contact
+                window._hsq = window._hsq || [];
+                window._hsq.push(['identify', {
+                    email: email
+                }]);
 
-                // Submit to HubSpot Forms API
-                fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(hubspotData)
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.inlineMessage || data.redirectUri) {
-                            btn.innerText = 'Subscribed!';
-                            form.reset();
-                        } else {
-                            throw new Error('Submission failed');
-                        }
+                // Track the newsletter subscription event
+                window._hsq.push(['trackEvent', {
+                    id: 'Newsletter Subscription',
+                    value: email
+                }]);
 
-                        setTimeout(() => {
-                            btn.innerText = originalBtnText;
-                            btn.disabled = false;
-                            btn.classList.remove('opacity-70', 'cursor-not-allowed');
-                        }, 3000);
-                    })
-                    .catch(error => {
-                        console.error('Error!', error);
-                        btn.innerText = 'Error! Try again.';
-                        setTimeout(() => {
-                            btn.innerText = originalBtnText;
-                            btn.disabled = false;
-                            btn.classList.remove('opacity-70', 'cursor-not-allowed');
-                        }, 3000);
-                    });
+                btn.innerText = 'Subscribed!';
+                form.reset();
+
+                setTimeout(() => {
+                    btn.innerText = originalBtnText;
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                }, 3000);
             } else {
                 // HubSpot not loaded yet, try again
                 setTimeout(submitToHubSpot, 100);

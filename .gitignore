@@ -31,3 +31,5 @@ yarn-error.log*
 # Gemin/Antigravity artifacts (internal)
 .gemini/
 .agent/
+_site/
+
