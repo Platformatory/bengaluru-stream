@@ -266,7 +266,7 @@ function initNewsletter() {
         btn.classList.add('opacity-70', 'cursor-not-allowed');
 
         // HubSpot Portal ID
-        const portalId = '244934895';
+        const portalId = '9357888';
 
         // Method 1: Try using HubSpot Forms API (requires form to be created in HubSpot)
         // You need to create a form in HubSpot and replace 'YOUR_FORM_GUID' with the actual GUID
